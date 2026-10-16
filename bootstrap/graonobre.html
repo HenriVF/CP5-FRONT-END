@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grão Nobre</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+:root{
+  --tinta:#1c211e;
+  --folha:#2f4a3b;
+  --cereja:#b3262e;
+  --nevoa:#e8eee9;
+  --branco:#fbfcfb;
+  --bs-body-font-family:'DM Sans',system-ui,sans-serif;
+  --bs-body-color:var(--tinta);
+  --bs-body-bg:var(--branco);
+}
+h1,h2,h3,.brand{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--cereja);outline-offset:2px}
+
+/* navbar */
+.topo{background:var(--branco);border-bottom:1px solid #d5ddd7}
+.brand{font-weight:800;font-size:1.4rem;color:var(--tinta);text-decoration:none}
+.topo .nav-link{color:var(--tinta);font-weight:500}
+.topo .nav-link:hover{color:var(--cereja)}
+.btn-cereja{background:var(--cereja);color:#fff;border:0;border-radius:999px;font-weight:700;padding:.6rem 1.4rem}
+.btn-cereja:hover{background:#951e25;color:#fff}
+
+/* hero */
+.hero{background:var(--folha);color:#fff;padding:6rem 0 5rem}
+.hero h1{font-weight:800;font-size:clamp(2.6rem,7vw,5.6rem);line-height:1;max-width:11ch}
+.hero p.lead{max-width:44ch;color:#d6e2d9}
+.ficha{background:var(--branco);color:var(--tinta);border-radius:1.5rem;padding:2rem}
+.ficha h2{font-size:1.15rem;font-weight:700;margin-bottom:1.25rem}
+.ficha dl{margin:0}
+.ficha .linha{display:flex;justify-content:space-between;gap:1rem;padding:.8rem 0;border-bottom:1px solid #d5ddd7}
+.ficha .linha:last-child{border-bottom:0}
+.ficha dt{font-weight:500;color:#5b665f}
+.ficha dd{margin:0;font-weight:700;text-align:right}
+.hero-load{animation:entra .8s ease both}
+@keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.hero-load{animation:none}}
+
+/* depoimentos */
+.depo{background:var(--cereja);color:#fff;padding:5rem 0}
+.depo h2{font-weight:800;font-size:clamp(2rem,4vw,3rem)}
+.depo blockquote{font-family:'Bricolage Grotesque',sans-serif;font-weight:500;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1.25;margin:0 0 1.5rem;max-width:28ch}
+.depo .estrelas{letter-spacing:.2em;margin-bottom:1rem}
+.depo .carousel-item{min-height:15rem}
+.depo .controles{display:flex;gap:.75rem;margin-top:1rem}
+.depo .controles button{width:3rem;height:3rem;border-radius:50%;border:2px solid #fff;background:transparent;color:#fff;font-size:1.2rem}
+.depo .controles button:hover{background:#fff;color:var(--cereja)}
+
+/* faq */
+.faq{background:var(--nevoa);padding:5rem 0}
+.faq h2{font-weight:800;font-size:clamp(2rem,4vw,3rem)}
+.faq .accordion{--bs-accordion-bg:transparent;--bs-accordion-border-color:#b9c6bd;--bs-accordion-btn-focus-box-shadow:none;--bs-accordion-active-bg:transparent;--bs-accordion-active-color:var(--cereja)}
+.faq .accordion-item{border-left:0;border-right:0;border-radius:0}
+.faq .accordion-button{font-weight:700;font-size:1.1rem;padding:1.4rem 0;background:transparent}
+.faq .accordion-body{padding:0 0 1.4rem;max-width:60ch}
+@media (min-width:992px){.faq .sticky{position:sticky;top:2rem}}
+
+/* rodapé */
+.rodape{background:var(--tinta);color:#c7d0ca;padding:2.5rem 0}
+.rodape .brand{color:#fff}
+
+/* modal */
+.modal-content{border:0;border-radius:1.5rem}
+.opcao{display:flex;align-items:center;gap:.9rem;padding:1rem 1.1rem;border:2px solid #d5ddd7;border-radius:1rem;cursor:pointer;margin-bottom:.75rem}
+.opcao:has(input:checked){border-color:var(--cereja);background:#fbeeee}
+.opcao input{accent-color:var(--cereja);width:1.1rem;height:1.1rem}
+</style>
+</head>
+<body>
+
+<nav class="topo navbar navbar-expand-lg">
+  <div class="container">
+    <a class="brand navbar-brand" href="#inicio">Grão Nobre</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav mx-lg-auto gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+      </ul>
+      <button class="btn btn-cereja" data-bs-toggle="modal" data-bs-target="#modalPedido">Comprar agora</button>
+    </div>
+  </div>
+</nav>
+
+<header id="inicio" class="hero">
+  <div class="container">
+    <div class="row align-items-end g-5">
+      <div class="col-lg-7 hero-load">
+        <h1>Café de origem, torrado com propósito.</h1>
+        <p class="lead mt-4">Trabalhamos direto com pequenos produtores e torramos em lotes pequenos toda semana. Você recebe o grão fresco, com a história de quem plantou.</p>
+        <button class="btn btn-cereja btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#modalPedido">Escolher meu café</button>
+      </div>
+      <div class="col-lg-5 hero-load" style="animation-delay:.15s">
+        <div class="ficha">
+          <h2>Lote da semana</h2>
+          <dl>
+            <div class="linha"><dt>Origem</dt><dd>Sul de Minas</dd></div>
+            <div class="linha"><dt>Altitude</dt><dd>1.150 m</dd></div>
+            <div class="linha"><dt>Processo</dt><dd>Natural</dd></div>
+            <div class="linha"><dt>Notas</dt><dd>Chocolate e laranja</dd></div>
+            <div class="linha"><dt>Torra</dt><dd>Média</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="depoimentos" class="depo">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <h2>O que dizem nossos clientes</h2>
+      </div>
+      <div class="col-lg-8">
+        <div id="carouselDepoimentos" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+              <blockquote>Melhor café que já experimentei em assinatura. Chega sempre fresquinho.</blockquote>
+              <strong>Marina Alves</strong><br><span class="opacity-75">Assinante desde 2023</span>
+            </div>
+            <div class="carousel-item">
+              <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+              <blockquote>O atendimento é ótimo e a torra é sempre no ponto certo.</blockquote>
+              <strong>Rafael Lima</strong><br><span class="opacity-75">Assinante desde 2024</span>
+            </div>
+            <div class="carousel-item">
+              <div class="estrelas" aria-label="5 estrelas">★★★★★</div>
+              <blockquote>Comprei para presentear e virei cliente fixo no mês seguinte.</blockquote>
+              <strong>Carla Souza</strong><br><span class="opacity-75">Assinante desde 2025</span>
+            </div>
+          </div>
+          <div class="controles">
+            <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="prev" aria-label="Depoimento anterior">&larr;</button>
+            <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide="next" aria-label="Próximo depoimento">&rarr;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="faq">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-4">
+        <div class="sticky">
+          <h2>Perguntas frequentes</h2>
+          <p class="mt-3 text-secondary">Tudo o que você precisa saber antes do primeiro pedido.</p>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="accordion" id="accordionFaq">
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">Qual a validade do café após aberto?</button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Recomendamos consumir em até 30 dias, guardando o pacote fechado e longe da luz.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">Vocês entregam para todo o Brasil?</button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Sim! Enviamos para todas as regiões, com prazo médio de 3 a 7 dias úteis dependendo da localidade.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Posso cancelar minha assinatura quando quiser?</button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
+              <div class="accordion-body">Pode sim, sem multa. O cancelamento é feito na sua conta e vale a partir do ciclo seguinte.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="container d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+    <span class="brand fs-5">Grão Nobre</span>
+    <small>© 2026 Grão Nobre. Marca fictícia criada para fins didáticos.</small>
+  </div>
+</footer>
+
+<div class="modal fade" id="modalPedido" tabindex="-1" aria-labelledby="tituloPedido" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0 pb-0">
+        <h2 class="modal-title fs-4 fw-bold" id="tituloPedido">Faça seu pedido</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <label class="opcao"><input type="checkbox"> Kit de degustação</label>
+        <label class="opcao"><input type="checkbox"> 1 pacote de 250g</label>
+        <label class="opcao mb-0"><input type="checkbox"> 5 pacotes de 250g</label>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button type="button" class="btn btn-cereja w-100">Ir para o carrinho</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
